@@ -86,7 +86,7 @@ public class TicketServiceImpl implements TicketService{
 
     private Group findOrSaveGroupByName(Ticket ticket) {
         String groupName = ticket.getGroup() != null ? ticket.getGroup().getGroupName() : null;
-        return groupName == null ? null : groupRepository.findTicketGroupByGroupName(groupName).orElseGet(() -> groupRepository.save(new Group(groupName)));
+        return groupName == null ? null : groupRepository.findGroupByGroupName(groupName).orElseGet(() -> groupRepository.save(new Group(groupName)));
     }
 
     private Issue findOrSaveIssueByIssueType(Ticket ticket) {
